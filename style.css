@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden; // ล็อคการเลื่อนหน้าจอ 
+    
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+ 
+/* ฝั่งซ้าย */
+.left {
+    flex: 1;
+    background: url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9") no-repeat center center/cover;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    height: 180%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.stars {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+/* ฝั่งขวา */
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6f9;
+}
+
+.login-box {
+    width: 400px;
+    text-align: center;
+     margin-top: 20px;
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+}
+
+.sub {
+    margin-bottom: 20px;
+    color: gray;
+}
+
+/* ====== ROLE SWITCH PREMIUM ====== */
+
+.role-box {
+    margin-bottom: 20px;
+}
+
+.title {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.role-switch {
+    position: relative;
+    display: flex;
+    background: #e0e0e0;
+    border-radius: 30px;
+    padding: 5px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.role-switch input {
+    display: none;
+}
+
+.role-switch label {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.role-switch label:hover {
+    transform: scale(1.05);
+}
+
+.slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 33%;
+    height: calc(100% - 10px);
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    border-radius: 30px;
+    transition: 0.3s;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#customer:checked ~ .slider {
+    left: 5px;
+}
+
+#staff:checked ~ .slider {
+    left: 34%;
+}
+
+#owner:checked ~ .slider {
+    left: 67%;
+}
+
+#customer:checked + label,
+#staff:checked + label,
+#owner:checked + label {
+    color: white;
+    font-weight: bold;
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 250px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+
+.login-btn {
+    width: 200px; 
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(114, 60, 60, 0.2);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+}
+
+.arrow {
+    margin-left: 8px;
+}
+
+/* สมัคร */
+.register {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
