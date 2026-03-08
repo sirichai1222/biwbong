@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="payment.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- POPUP QR -->
+
+    <div id="qrPopup" class="popup">
+
+        <div class="popup-box">
+
+            <span class="close" onclick="closeQR()">&times;</span>
+
+            <h2>สแกนเพื่อชำระเงิน</h2>
+
+            <div id="popupQR"></div>
+
+            <p class="status">แจ้งชำระเงิน</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">แม่กา คาร์วอช</div>
+
+        <ul class="menu">
+            <li>หน้าแรก</li>
+            <li>จองบริการ</li>
+            <li>ประวัติการจอง</li>
+            <li class="logout">ออกจากระบบ</li>
+        </ul>
+
+    </div>
+
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <h1>ชำระเงิน</h1>
+
+        <p class="subtitle">
+            กรุณาสแกน QR CODE หรือเลือกวิธีชำระเงิน
+        </p>
+
+
+        <!-- TAB -->
+
+        <div class="tabs">
+
+            <button id="qrBtn" class="active" onclick="showQR()">
+                Thai QR Payment
+            </button>
+
+            <button id="cardBtn" onclick="showCard()">
+                บัตรเครดิต/เดบิต
+            </button>
+
+        </div>
+
+
+        <div class="grid">
+
+            <!-- LEFT -->
+
+            <div>
+
+                <div id="qrBox">
+
+                    <div class="qr-card">
+
+                        <div class="prompt">PromptPay</div>
+
+                        <div id="qrcode"></div>
+
+                    </div>
+
+                    <button class="pay-btn" onclick="startQR()">
+                        แจ้งการชำระเงิน
+                    </button>
+
+                </div>
+
+
+                <!-- CARD PAYMENT -->
+
+                <div id="cardBox" style="display:none">
+
+                    <div class="card-form">
+
+                        <input type="text" placeholder="ชื่อบนบัตร">
+                        <input type="text" placeholder="เลขบัตรเครดิต">
+
+                        <div class="row">
+                            <input type="text" placeholder="MM/YY">
+                            <input type="text" placeholder="CVV">
+                        </div>
+
+                        <button class="confirm-btn" onclick="confirmPayment()">
+                            ชำระเงิน
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div>
+
+                <div class="timer-card">
+
+                    <p>กรุณาชำระเงินภายใน</p>
+
+                    <div class="timer">
+                        <span id="minutes">15</span> :
+                        <span id="seconds">00</span>
+                    </div>
+
+                </div>
+
+                <div class="price-card">
+
+               <p>ยอดที่ต้องชำระ: <span id="price" class="price-blue"></span> บาท</p>
+
+
+
+                </div>
+                <a href="booking.html">
+                    <button class="back-btn">ย้อนกลับ</button>
+                </a>
+               
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

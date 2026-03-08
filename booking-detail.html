@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>รายละเอียดการจอง</title>
+    <link rel="stylesheet" href="booking-detail.css">
+
+</head>
+<script>
+
+    function cancelBooking() {
+
+        if (confirm("ต้องการยกเลิกการจองหรือไม่?")) {
+            alert("ยกเลิกการจองสำเร็จ")
+        }
+
+    }
+
+</script>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            แม่กา คาร์วอช
+        </div>
+
+        <ul>
+
+            <li>หน้าแรก</li>
+            <li>จองบริการ</li>
+            <li class="active">ประวัติการจอง</li>
+            <li class="logout">ออกจากระบบ</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- CONTAINER -->
+
+    <div class="container">
+        <div class="header">
+            <h1>รายละเอียดการจอง</h1>
+
+            <button class="back-btn">
+                ← ย้อนกลับ
+            </button>
+
+        </div>
+
+        <p class="booking-id">
+            หมายเลขการจอง: #CAA-1234
+        </p>
+
+
+        <!-- BOOKING CARD -->
+
+        <div class="card">
+            <div class="card-top">
+                <div>
+                    <h2>ล้างรถทั้งคัน</h2>
+                    <p>ประเภทบริการมาตรฐาน</p>
+
+                </div>
+
+                <span class="status">
+                    รอดำเนินการ
+                </span>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="info">
+
+                <div class="item">
+
+                    <span>📅</span>
+
+                    <p>
+                        วันทำการจอง<br>
+                        24 มกราคม 2569 | 10:00
+                    </p>
+
+                </div>
+
+
+                <div class="item">
+
+                    <span>📦</span>
+
+                    <p>
+                        สถานที่<br>
+                        ถนน 1234 กรุงเทพมหานคร
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRICE BOX -->
+
+            <div class="price-box">
+
+                <h3>รายละเอียดราคา</h3>
+
+                <div class="row">
+
+                    <span>ค่าบริการล้างรถทั้งคัน</span>
+                    <span>฿ 299.60</span>
+
+                </div>
+
+                <hr>
+
+                <div class="row total">
+
+                    <span>ราคาสุทธิ</span>
+                    <span>฿ 299.60</span>
+
+                </div>
+
+
+            </div>
+
+
+            <button class="cancel-btn">
+                ✖ ยกเลิกการจอง
+            </button>
+
+        </div>
+
+        <p class="note">
+            หากต้องการเลื่อนนัดหมาย กรุณาติดต่อก่อนล่วงหน้าอย่างน้อย 2 ชม.
+        </p>
+
+
+    </div>
+    
+
+</body>
+
+</html>
