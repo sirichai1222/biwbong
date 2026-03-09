@@ -37,8 +37,8 @@ color:red;
 
 .container{
 
-width:1000px;
-margin:40px auto;
+width:900px;
+margin:30px auto;
 
 }
 
@@ -56,7 +56,7 @@ align-items:center;
 
 background:#eee;
 border:none;
-padding:10px 20px;
+padding:15px 30px;
 border-radius:10px;
 cursor:pointer;
 
@@ -64,20 +64,19 @@ cursor:pointer;
 
 /* BOOKING ID */
 
-.booking-id{
+.booking-id {
 
 color:#666;
-margin-bottom:20px;
+margin-bottom:50px;
 
 }
 
 /* CARD */
 
 .card{
-
 background:white;
-padding:30px;
-border-radius:20px;
+padding:50px;
+border-radius:50px;
 box-shadow:0 5px 20px rgba(0,0,0,0.08);
 
 }
@@ -94,9 +93,9 @@ align-items:center;
 
 background:#4c6fff;
 color:white;
-padding:5px 15px;
-border-radius:15px;
-font-size:14px;
+padding:5px 20px;
+border-radius:20px;
+font-size:20px;
 
 }
 
@@ -105,15 +104,14 @@ font-size:14px;
 .info{
 
 display:flex;
-gap:80px;
+gap:90px;
 margin-top:20px;
 
 }
 
 .item{
-
 display:flex;
-gap:10px;
+gap:100px;
 align-items:flex-start;
 
 }
@@ -122,9 +120,9 @@ align-items:flex-start;
 
 .price-box{
 
-margin-top:25px;
+margin: top 20px;px;
 background:#f9fafc;
-padding:20px;
+padding: 30px;px;
 border-radius:15px;
 border:1px solid #dfe3ea;
 
@@ -149,15 +147,16 @@ color:#4c6fff;
 
 .cancel-btn{
 
-margin-top:30px;
+margin-top:20px;
 width:100%;
-padding:15px;
+padding: 15px;px;
 border:none;
-border-radius:12px;
+border-radius:20px;
 background:#f7d6d6;
 color:#d80000;
-font-size:16px;
+font-size:20px;
 cursor:pointer;
+
 
 }
 
@@ -166,7 +165,27 @@ cursor:pointer;
 .note{
 
 text-align:center;
-margin-top:20px;
+margin-top:50px;
 color:#777;
 
+}
+.menu{
+    display:flex;
+    gap:20px;
+}
+
+.menu-item{
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:10px;
+    color:black;
+}
+
+.menu-item:hover{
+    background:#2edc0cd7;
+}
+
+.active{
+    background:#007bff;
+    color:white;
 }
