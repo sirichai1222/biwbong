@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>จองสำเร็จ</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* bubbles */
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float 12s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-1000px);
+            }
+        }
+
+        /* navbar */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .menu a:hover {
+            background: #007bff;
+        }
+
+        /* container */
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        /* card */
+
+        .card {
+
+            background: white;
+            color: black;
+            border-radius: 20px;
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .banner {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        /* top */
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status {
+
+            background: #2ecc71;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+
+        }
+
+        /* info */
+
+        .info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* service */
+
+        .service {
+            margin-top: 20px;
+        }
+
+        .service h3 {
+            color: #007bff;
+        }
+
+        /* price */
+
+        .price {
+            margin-top: 20px;
+        }
+
+        .price h3 {
+            color: #007bff;
+            font-size: 28px;
+        }
+
+        /* note */
+
+        .note {
+            margin-top: 25px;
+            opacity: 0.8;
+        }
+
+        /* buttons */
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 14px 22px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .download {
+            background: #555;
+            color: white;
+        }
+
+        .home {
+
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+
+            box-shadow: 0 6px 0 #0047b3;
+
+        }
+
+        .home:active {
+
+            transform: translateY(5px);
+            box-shadow: 0 2px 0 #0047b3;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- bubbles -->
+
+    <div class="bubble" style="left:10%"></div>
+    <div class="bubble" style="left:30%;width:60px;height:60px"></div>
+    <div class="bubble" style="left:50%"></div>
+    <div class="bubble" style="left:70%"></div>
+    <div class="bubble" style="left:90%"></div>
+
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            🚗 แม่กา คาร์วอช
+        </div>
+
+        <div class="menu">
+            <a href="home.html">หน้าแรก</a>
+            <a href="booking.html">จองบริการ</a>
+            <a href="history.html">ประวัติการจอง</a>
+            <a href="#" onclick="logout()">ออกจากระบบ</a>
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="container">
+
+        <h1 class="title">จองสำเร็จ!</h1>
+        <p class="subtitle">ขอบคุณที่ใช้บริการเรา</p>
+
+        <div class="card">
+
+            <img class="banner" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+
+            <div class="card-body">
+
+                <div class="top">
+
+                    <div>
+                        <p>รหัสการจอง</p>
+                        <h2 id="bookingID">#CAA-0000</h2>
+                    </div>
+
+                    <div class="status">
+                        ชำระเงินเรียบร้อย
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="info">
+
+                    <div class="item">
+                        <span>📅</span>
+                        <div>
+                            <p>วันที่</p>
+                            <b id="date"></b>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <span>⏰</span>
+                        <div>
+                            <p>เวลา</p>
+                            <b id="time"></b>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="service">
+
+                    <p>ประเภทบริการ</p>
+                    <h3 id="package"></h3>
+
+                </div>
+
+                <div class="price">
+
+                    <p>ราคาที่ชำระ</p>
+                    <h3>฿ <span id="price"></span></h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="note">
+            เราได้ส่งรายละเอียดการจองไปยังอีเมลของคุณแล้ว
+        </p>
+
+        <div class="buttons">
+
+            <button class="download">
+                ดาวน์โหลดเอกสาร
+            </button>
+
+            <a href="home.html">
+                <button class="home">
+                    กลับไปหน้าหลัก
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* สร้างเลขการจอง */
+
+        let bookingID = "#CAA-" + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById("bookingID").innerText = bookingID;
+
+        /* ดึงข้อมูล */
+
+        let service = localStorage.getItem("serviceName");
+        let price = localStorage.getItem("totalPrice");
+        let date = localStorage.getItem("bookingDate");
+        let time = localStorage.getItem("bookingTime");
+
+        if (service) {
+            document.getElementById("package").innerText = service;
+        }
+
+        if (price) {
+            document.getElementById("price").innerText = price;
+        }
+
+        if (date) {
+            document.getElementById("date").innerText = date;
+        }
+
+        if (time) {
+            document.getElementById("time").innerText = time;
+        }
+
+    </script>
+
+</body>
+
+</html>

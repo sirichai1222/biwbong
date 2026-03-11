@@ -5,52 +5,253 @@
 
     <meta charset="UTF-8">
     <title>รายละเอียดการจอง</title>
-    <link rel="stylesheet" href="booking-detail.css">
 
-</head>
-<script>
-
-    function cancelBooking() {
-
-        if (confirm("ต้องการยกเลิกการจองหรือไม่?")) {
-            alert("ยกเลิกการจองสำเร็จ")
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            overflow-x: hidden;
         }
 
-    }
+        /* bubbles */
 
-</script>
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float 12s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-1000px);
+            }
+        }
+
+        /* navbar */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .menu a:hover {
+            background: #007bff;
+        }
+
+        /* container */
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        /* header */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .booking-id {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* card */
+
+        .card {
+
+            background: white;
+            color: black;
+
+            padding: 30px;
+            border-radius: 20px;
+
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+
+        }
+
+        /* top */
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* status */
+
+        .status {
+
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: white;
+
+        }
+
+        /* info */
+
+        .info {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* price */
+
+        .price-box {
+            margin-top: 25px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .total {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* buttons */
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .back-btn {
+
+            background: #555;
+            color: white;
+
+        }
+
+        .cancel-btn {
+
+            margin-top: 20px;
+
+            background: linear-gradient(135deg, #ff4d4d, #cc0000);
+            color: white;
+
+            box-shadow: 0 5px 0 #8b0000;
+
+        }
+
+        .cancel-btn:active {
+
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #8b0000;
+
+        }
+
+        /* loader */
+
+        .loader {
+
+            display: none;
+
+            border: 5px solid #eee;
+            border-top: 5px solid #ff4d4d;
+            border-radius: 50%;
+
+            width: 30px;
+            height: 30px;
+
+            animation: spin 1s linear infinite;
+            margin: 15px auto;
+
+        }
+
+        @keyframes spin {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        /* note */
+
+        .note {
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+    </style>
+
+</head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- bubbles -->
+
+    <div class="bubble" style="left:10%"></div>
+    <div class="bubble" style="left:30%;width:60px;height:60px"></div>
+    <div class="bubble" style="left:50%"></div>
+    <div class="bubble" style="left:70%"></div>
+    <div class="bubble" style="left:90%"></div>
+
+    <!-- navbar -->
 
     <div class="navbar">
 
-        <div class="logo">
-        
-         <img src="https://scontent.fbkk22-2.fna.fbcdn.net/v/t39.30808-6/474010047_122216604392067299_2784123658035684701_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeHxqvBKCyozRp7_gOnKTfDTIK8uspLIxekgry6yksjF6ZB5oC5ESll6dH3Vp4THN7JVs_fQyOmZNf3UHo9QjiVp&_nc_ohc=P5f5amg5ESIQ7kNvwETC1K5&_nc_oc=AdmccrhxgLjMA-qw0sUBTBrtZ4ubQSQSfM9PtW_NBUHPFhPAOt1345y7PfnC5E7TmBc&_nc_zt=23&_nc_ht=scontent.fbkk22-2.fna&_nc_gid=4SzRVcVYbFBbf1APmcM3iA&_nc_ss=8&oh=00_Afx9rideaXSakgNVhmFZtDnmQC9PCibIMo7YgNZyZrGA2Q&oe=69B39031 "width="200"> 
+        <div class="logo">🚗 แม่กา คาร์วอช</div>
+
+        <div class="menu">
+            <a href="home.html">หน้าแรก</a>
+            <a href="booking.html">จองบริการ</a>
+            <a href="history.html">ประวัติการจอง</a>
+            <a href="index.html">ออกจากระบบ</a>
         </div>
-
-        <ul>
-
-  <div class="menu">
-    <a href="home.html" class="menu-item">หน้าแรก</a>
-    <a href="booking.html" class="menu-item">จองบริการ</a>
-    <a href="history.html" class="menu-item">ประวัติการจอง</a>
-    <a href="history.html" class="menu-item">ออกระบบ</a>
-</div>
-        </ul>
 
     </div>
 
-
-    <!-- CONTAINER -->
-
     <div class="container">
+
         <div class="header">
+
             <h1>รายละเอียดการจอง</h1>
 
-            <button class="back-btn">
+            <button class="back-btn" onclick="goBack()">
                 ← ย้อนกลับ
             </button>
 
@@ -60,26 +261,24 @@
             หมายเลขการจอง: #CAA-1234
         </p>
 
-
-        <!-- BOOKING CARD -->
-
         <div class="card">
+
             <div class="card-top">
+
                 <div>
-                    <h2>ล้างรถทั้งคัน</h2>
+
+                    <h2 id="serviceName">บริการล้างรถ</h2>
                     <p>ประเภทบริการมาตรฐาน</p>
 
                 </div>
 
-                <span class="status">
+                <span id="status" class="status">
                     รอดำเนินการ
                 </span>
 
             </div>
 
-
             <hr>
-
 
             <div class="info">
 
@@ -87,13 +286,12 @@
 
                     <span>📅</span>
 
-                    <p>
+                    <p id="dateTime">
                         วันทำการจอง<br>
-                        24 มกราคม 2569 | 10:00
+                        -
                     </p>
 
                 </div>
-
 
                 <div class="item">
 
@@ -101,15 +299,12 @@
 
                     <p>
                         สถานที่<br>
-                        ถนน 1234 กรุงเทพมหานคร
+                        แม่กา คาร์วอช
                     </p>
 
                 </div>
 
             </div>
-
-
-            <!-- PRICE BOX -->
 
             <div class="price-box">
 
@@ -117,8 +312,8 @@
 
                 <div class="row">
 
-                    <span>ค่าบริการล้างรถทั้งคัน</span>
-                    <span>฿ 299.60</span>
+                    <span id="serviceText">ค่าบริการ</span>
+                    <span id="price">฿ 0</span>
 
                 </div>
 
@@ -127,17 +322,17 @@
                 <div class="row total">
 
                     <span>ราคาสุทธิ</span>
-                    <span>฿ 299.60</span>
+                    <span id="totalPrice">฿ 0</span>
 
                 </div>
 
-
             </div>
 
-
-            <button class="cancel-btn">
+            <button id="cancelBtn" class="cancel-btn">
                 ✖ ยกเลิกการจอง
             </button>
+
+            <div class="loader" id="loader"></div>
 
         </div>
 
@@ -145,9 +340,99 @@
             หากต้องการเลื่อนนัดหมาย กรุณาติดต่อก่อนล่วงหน้าอย่างน้อย 2 ชม.
         </p>
 
-
     </div>
-    
+
+    <script>
+
+        /* ดึงข้อมูลแพ็คเกจ */
+
+        let serviceName = localStorage.getItem("serviceName");
+        let totalPrice = localStorage.getItem("totalPrice");
+
+        if (serviceName) {
+
+            document.getElementById("serviceName").innerText = serviceName;
+            document.getElementById("serviceText").innerText = serviceName;
+
+        }
+
+        if (totalPrice) {
+
+            document.getElementById("price").innerText = "฿ " + totalPrice;
+            document.getElementById("totalPrice").innerText = "฿ " + totalPrice;
+
+        }
+
+        /* วันเวลา */
+
+        let now = new Date();
+
+        let date = now.toLocaleDateString("th-TH");
+        let time = now.toLocaleTimeString("th-TH", { hour: '2-digit', minute: '2-digit' });
+
+        document.getElementById("dateTime").innerHTML =
+            "วันทำการจอง<br>" + date + " | " + time;
+
+        /* สถานะ */
+
+        let status = localStorage.getItem("bookingStatus");
+
+        let statusEl = document.getElementById("status");
+        let cancelBtn = document.getElementById("cancelBtn");
+
+        if (status === "cancel") {
+
+            statusEl.innerText = "ยกเลิกแล้ว";
+            statusEl.style.background = "#ff4d4d";
+
+            cancelBtn.style.display = "none";
+
+        }
+
+        else {
+
+            statusEl.innerText = "รอดำเนินการ";
+            statusEl.style.background = "#6c5ce7";
+
+        }
+
+        /* ย้อนกลับ */
+
+        function goBack() {
+
+            window.location.href = "history.html";
+
+        }
+
+        /* ยกเลิกการจอง */
+
+        cancelBtn.addEventListener("click", function () {
+
+            let confirmCancel = confirm("คุณจะยกเลิกการจองใช่มั้ย?");
+
+            if (confirmCancel) {
+
+                cancelBtn.style.display = "none";
+
+                document.getElementById("loader").style.display = "block";
+
+                /* delay */
+
+                setTimeout(function () {
+
+                    localStorage.setItem("bookingStatus", "cancel");
+
+                    alert("ยกเลิกการจองสำเร็จ");
+
+                    window.location.href = "history.html";
+
+                }, 2500);
+
+            }
+
+        });
+
+    </script>
 
 </body>
 

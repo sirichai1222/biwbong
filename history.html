@@ -1,44 +1,273 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
     <meta charset="UTF-8">
     <title>ประวัติการจอง</title>
-    <link rel="stylesheet" href="history.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* bubbles */
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float 12s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-1000px);
+            }
+        }
+
+        /* navbar */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .menu a:hover {
+            background: #007bff;
+        }
+
+        .active {
+            background: #007bff;
+        }
+
+        /* container */
+
+        .container {
+            padding: 40px 80px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* booking grid */
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* booking card */
+
+        .booking-card {
+
+            background: white;
+            color: black;
+
+            padding: 25px;
+            border-radius: 18px;
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+            transition: 0.3s;
+
+        }
+
+        .booking-card:hover {
+
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+
+        }
+
+        /* top */
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .code {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* date */
+
+        .date {
+            color: #666;
+        }
+
+        .location {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* bottom */
+
+        .card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        /* status */
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .blue {
+            background: #007bff;
+            color: white;
+        }
+
+        /* dot */
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .yellow {
+            background: #ffc107;
+        }
+
+        /* button */
+
+        .detail {
+
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+
+            box-shadow: 0 4px 0 #0047b3;
+
+        }
+
+        .detail:active {
+
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #0047b3;
+
+        }
+
+        /* activity */
+
+        .activity {
+
+            margin-top: 50px;
+
+            background: white;
+            color: black;
+
+            padding: 30px;
+            border-radius: 18px;
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+        }
+
+        .activity h2 {
+            margin-bottom: 20px;
+        }
+
+        /* activity item */
+
+        .activity-item {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+
+        }
+
+        .activity-item:last-child {
+            border: none;
+        }
+
+        .check {
+            color: #2ecc71;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .done {
+            color: #2ecc71;
+            font-size: 14px;
+        }
+    </style>
+
 </head>
 
 <body>
 
+    <!-- bubbles -->
+
+    <div class="bubble" style="left:10%"></div>
+    <div class="bubble" style="left:30%;width:60px;height:60px"></div>
+    <div class="bubble" style="left:50%"></div>
+    <div class="bubble" style="left:70%"></div>
+    <div class="bubble" style="left:90%"></div>
+
     <!-- NAVBAR -->
+
     <div class="navbar">
 
         <div class="logo">
-            แม่กา คาร์วอช
+            🚗 แม่กา คาร์วอช
         </div>
-<div class="menu">
-    <a href="home.html" class="menu-item">หน้าแรก</a>
-    <a href="booking.html" class="menu-item">จองบริการ</a>
-    <a href="history.html" class="menu-item">ประวัติการจอง</a>
-    <a href="history.html" class="menu-item">ออกระบบ</a>
-</div>
+
+        <div class="menu">
+            <a href="home.html">หน้าแรก</a>
+            <a href="booking.html">จองบริการ</a>
+            <a class="active" href="history.html">ประวัติการจอง</a>
+            <a href="#" onclick="logout()">ออกจากระบบ</a>
+        </div>
 
     </div>
 
-
-    <!-- CONTAINER -->
     <div class="container">
 
-        <div class="header">
+        <h1 class="title">ประวัติการจอง</h1>
 
-            <h1>การจองของฉัน</h1>
-
-            <button class="back-btn">
-                ย้อนกลับ
-            </button>
-
-        </div>
-
-
-        <!-- BOOKING CARDS -->
         <div class="booking-grid">
 
             <div class="booking-card">
@@ -46,7 +275,8 @@
                 <div class="card-top">
 
                     <span class="code">#CAA-1234</span>
-                    <span class="status blue">รอดำเนินการ</span>
+
+                    <span id="statusText">สถานะ : รอดำเนินการ</span>
 
                 </div>
 
@@ -57,48 +287,17 @@
                 </p>
 
                 <p class="location">
-                    ถนน 1234 กรุงเทพมหานคร
+                    แม่กา คาร์วอช
                 </p>
 
                 <div class="card-bottom">
 
-                    <div class="dot green"></div>
-                    <span>สถานะ : ดำเนินการ</span>
+                    <div style="display:flex;align-items:center;gap:8px">
+                        <div class="dot yellow"></div>
+                        <span id="status" class="status blue">รอดำเนินการ</span>
+                    </div>
 
-                    <button class="detail">
-                        ดูรายละเอียด
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="booking-card">
-
-                <div class="card-top">
-
-                    <span class="code">#CAA-1234</span>
-                    <span class="status blue">รอดำเนินการ</span>
-
-                </div>
-
-                <h3>ขัดเคลือบสี</h3>
-
-                <p class="date">
-                    24 มกราคม 2569 | 10:00
-                </p>
-
-                <p class="location">
-                    ถนน 1234 กรุงเทพมหานคร
-                </p>
-
-                <div class="card-bottom">
-
-                    <div class="dot yellow"></div>
-                    <span>สถานะ : รอดำเนินการ</span>
-
-                    <button class="detail">
+                    <button class="detail" onclick="goDetail()">
                         ดูรายละเอียด
                     </button>
 
@@ -110,17 +309,22 @@
 
 
         <!-- ACTIVITY -->
+
         <div class="activity">
 
             <h2>ความเคลื่อนไหวล่าสุด</h2>
 
             <div class="activity-item">
 
-                <span class="check">✔</span>
+                <div style="display:flex;align-items:center;gap:10px">
 
-                <div>
-                    <p>ดูดฝุ่นและพรม</p>
-                    <small>24 ม.ค. 2569 | 12:00</small>
+                    <span class="check">✔</span>
+
+                    <div>
+                        <p>ดูดฝุ่นและพรม</p>
+                        <small>24 ม.ค. 2569 | 12:00</small>
+                    </div>
+
                 </div>
 
                 <span class="done">
@@ -129,14 +333,17 @@
 
             </div>
 
-
             <div class="activity-item">
 
-                <span class="check">✔</span>
+                <div style="display:flex;align-items:center;gap:10px">
 
-                <div>
-                    <p>ล้างทั้งคัน</p>
-                    <small>20 ม.ค. 2569 | 8:00</small>
+                    <span class="check">✔</span>
+
+                    <div>
+                        <p>ล้างทั้งคัน</p>
+                        <small>20 ม.ค. 2569 | 08:00</small>
+                    </div>
+
                 </div>
 
                 <span class="done">
@@ -149,5 +356,34 @@
 
     </div>
 
+    <script>
+
+        /* ตรวจสอบสถานะ */
+
+        let service = localStorage.getItem("serviceName");
+
+        let historyBox = document.getElementById("history");
+
+        if (service) {
+
+            historyBox.innerText = service;
+
+        } else {
+
+            historyBox.innerText = "ไม่มีประวัติการจอง";
+
+        }
+
+        /* ไปหน้ารายละเอียด */
+
+        function goDetail() {
+
+            window.location.href = "booking-detail.html";
+
+        }
+
+    </script>
+
 </body>
+
 </html>
